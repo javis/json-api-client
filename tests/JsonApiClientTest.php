@@ -1,5 +1,12 @@
 <?php
 use PHPUnit\Framework\TestCase;
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Exception\RequestException;
+
 
 class JsonApiClientTest extends TestCase
 {
@@ -13,9 +20,17 @@ class JsonApiClientTest extends TestCase
   */
   public function testIsThereAnySyntaxError()
   {
-	$var = new Javis\JsonApiClient\JsonApiClient;
-	$this->assertTrue(is_object($var));
-	unset($var);
+    // Create a mock and queue two responses.
+    $mock = new MockHandler([
+      new Response(200, ['X-Foo' => 'Bar'])
+    ]);
+
+    $handler = HandlerStack::create($mock);
+    $client = new Client(['handler' => $handler]);
+
+    $var = new Javis\JsonApiClient\JsonApiClient("http://url.com",[],$client);
+    $this->assertTrue(is_object($var));
+    unset($var);
   }
-  
+
 }

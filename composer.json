@@ -14,9 +14,7 @@
     "require": {
         "php": ">=5.5.9",
         "guzzlehttp/guzzle": ">=6.3",
-        "league/oauth2-client": ">=1.4",
-        "php-http/guzzle6-adapter": ">=1.1",
-        "woohoolabs/yang": ">=0.4"
+        "woohoolabs/yang": "^2.1"
     },
     "require-dev": {
 		"phpunit/phpunit": ">=6"
