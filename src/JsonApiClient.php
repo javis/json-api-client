@@ -37,7 +37,7 @@ class JsonApiClient
     {
         $endpoint = Psr7\uri_for($endpoint);
 
-        if ($endpoint->isAbsolute()){
+        if ($endpoint->isAbsolute($endpoint)){
             throw new \Exception("Endpoint must be a relative path");
         }
 

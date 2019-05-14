@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":160:{a:2:{s:7:"defects";a:1:{s:44:"JsonApiClientTest::testIsThereAnySyntaxError";i:4;}s:5:"times";a:1:{s:44:"JsonApiClientTest::testIsThereAnySyntaxError";d:0.004;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":262:{a:2:{s:7:"defects";a:2:{s:44:"JsonApiClientTest::testIsThereAnySyntaxError";i:4;s:37:"JsonApiClientTest::testParsesResponse";i:4;}s:5:"times";a:2:{s:44:"JsonApiClientTest::testIsThereAnySyntaxError";d:0.003;s:37:"JsonApiClientTest::testParsesResponse";d:0.004;}}}

@@ -1,5 +1,5 @@
 <?php
-namespace Javis\api_clientapi_client;
+namespace Javis\JsonApiClient;
 
 class JsonApiQuery
 {
