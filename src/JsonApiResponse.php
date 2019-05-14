@@ -41,7 +41,7 @@ class JsonApiResponse
                 $this->data = [];
             } else {
                 $hydrator = new ClassHydrator();
-                $hydrated = $hydrator->hydrate(Document::createFromArray($this->body));
+                $hydrated = $hydrator->hydrate(Document::fromArray($this->body));
                 $this->data = $hydrated;
             }
         }
