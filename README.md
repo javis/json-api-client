@@ -57,7 +57,7 @@ $client->endpoint('users')->withJsonData([])->post();//store user
 $client->endpoint('users')->withJsonData([])->patch();//do patch request
 ```
 #### Request options
-* `$client->endpoint('users')->include(['posts'])->get()` - adds query param `include=posts` to request URL. See http://jsonapi.org/format/#fetching-includes
+* `$client->endpoint('users')->includes(['posts'])->get()` - adds query param `include=posts` to request URL. See http://jsonapi.org/format/#fetching-includes
 * `$client->endpoint('users')->fields(['user'=> ['id','name']])->get()` - adds query param `fields[users]=id,name`. See http://jsonapi.org/format/#fetching-sparse-fieldsets
 * `$client->endpoint('users')->filter(['users'=>['id'=>['eq'=>1]]])->get()` - adds query param `filter[users][id][eq]=1`. {json:api} is agnostic about filtering, so you can choose your filtering strategy and pass what ever array you want. See http://jsonapi.org/format/#fetching-filtering.
 * `$client->endpoint('users')->withQuery(['field'=>1])->get()` - adds query param `field=1=1`. In theory adding filter, includes, fields and pagination fields should be sufficient.

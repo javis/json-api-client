@@ -30,7 +30,7 @@ class Query
      * @param array $includes
      * @return $this
      */
-    public function include(array $includes)
+    public function includes(array $includes)
     {
         $this->includes = $includes;
         return $this;
