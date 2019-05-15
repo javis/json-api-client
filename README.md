@@ -26,6 +26,21 @@ return $response->data;
 ## Usage
 ### Configuring the client
 
+Create an instance passing base url and an array of default [request options](http://docs.guzzlephp.org/en/stable/request-options.html), where you can set up authentication details, etc.
+
+```php
+$client = new Client('http://my.api.com',[
+    'headers' => ['Authorization' => 'Bearer ' . $token]
+]);
+```
+
+Or pass an already configured `GuzzleHttp\Client()` object.
+
+```php
+$http_client = new GuzzleHttp\Client();
+$client = new Client('http://my.api.com',[], $http_client);
+```
+
 ### Making requests
 * get($endpoint)
 ```php
