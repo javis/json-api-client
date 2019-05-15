@@ -20,7 +20,7 @@ class Query
     protected $json = [];
     protected $throwException = true;
 
-    public function __construct($api_client, $endpoint)
+    public function __construct(Client $api_client, $endpoint)
     {
         $this->api_client = $api_client;
         $this->endpoint = $endpoint;
