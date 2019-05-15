@@ -104,7 +104,7 @@ class ClassHydrator
     /**
      * @param stdClass[] $resourceMap
      */
-    private function getObjectFromMap(string $type, string $id, array $resourceMap)
+    private function getObjectFromMap($type, $id, array $resourceMap)
     {
         return !empty($resourceMap[$type . "-" . $id])?$resourceMap[$type . "-" . $id]:null;
     }
@@ -112,7 +112,7 @@ class ClassHydrator
     /**
      * @param stdClass[] $resourceMap
      */
-    private function saveObjectToMap(stdClass $object, array &$resourceMap)
+    private function saveObjectToMap($object, array &$resourceMap)
     {
         $resourceMap[$object->type . "-" . $object->id] = $object;
     }
