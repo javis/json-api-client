@@ -2,8 +2,8 @@
 namespace Javis\JsonApi\Hydrator;
 
 use stdClass;
-use WoohooLabs\Yang\JsonApi\Schema\Document;
-use WoohooLabs\Yang\JsonApi\Schema\Resource\ResourceObject;
+use Javis\JsonApi\Schema\Document;
+use Javis\JsonApi\Schema\Resource;
 
 /**
  * Imported from WoohooLabs Yang to bring this feature to PHP 5.5
@@ -16,7 +16,7 @@ class ClassHydrator
 
     public function hydrate(Document $document)
     {
-        if ($document->hasAnyPrimaryResources() === false) {
+        if ($document->hasPrimaryResources() === false) {
             return new stdClass();
         }
         if ($document->isSingleResourceDocument()) {
@@ -30,7 +30,7 @@ class ClassHydrator
         if ($document->isSingleResourceDocument() === false) {
             return new stdClass();
         }
-        if ($document->hasAnyPrimaryResources() === false) {
+        if ($document->hasPrimaryResources() === false) {
             return new stdClass();
         }
         return $this->hydratePrimaryResource($document);
@@ -41,7 +41,7 @@ class ClassHydrator
      */
     public function hydrateCollection(Document $document)
     {
-        if ($document->hasAnyPrimaryResources() === false) {
+        if ($document->hasPrimaryResources() === false) {
             return [];
         }
         if ($document->isSingleResourceDocument()) {
@@ -69,7 +69,7 @@ class ClassHydrator
     /**
      * @param stdClass[] $resourceMap
      */
-    private function hydrateResource(ResourceObject $resource, Document $document, array &$resourceMap)
+    private function hydrateResource(Resource $resource, Document $document, array &$resourceMap)
     {
         // Fill basic attributes of the resource
         $result = new stdClass();

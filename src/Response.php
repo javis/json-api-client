@@ -1,7 +1,7 @@
 <?php
 namespace Javis\JsonApi;
 
-use WoohooLabs\Yang\JsonApi\Schema\Document;
+use Javis\JsonApi\Schema\Document;
 use Javis\JsonApi\Hydrator\ClassHydrator;
 
 class Response
@@ -41,7 +41,7 @@ class Response
                 $this->data = [];
             } else {
                 $hydrator = new ClassHydrator();
-                $hydrated = $hydrator->hydrate(Document::fromArray($this->body));
+                $hydrated = $hydrator->hydrate(Document::createFromArray($this->body));
                 $this->data = $hydrated;
             }
         }
