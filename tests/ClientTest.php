@@ -29,7 +29,7 @@ class ClientTest extends TestCase
       $this->assertTrue(is_object($var));
   }
 
-  public function testParsesResponse()
+  public function testResponseParsing()
   {
       // create mock response
       $mock = new MockHandler();
@@ -43,9 +43,24 @@ class ClientTest extends TestCase
       // do the request from the API and parses the response
       $response = $api_client->endpoint('articles')->get();
 
+      // test basic structure
       $this->assertEquals(200 , $response->status);
-
       $this->assertTrue(is_object($response->data[0]));
+
+      // test main resource properties
+      $this->assertEquals('articles',$response->data[0]->type);
+      $this->assertEquals(1,$response->data[0]->id);
+      $this->assertEquals('JSON:API paints my bikeshed!',$response->data[0]->title);
+
+      // test relationships
+      $this->assertTrue(is_object($response->data[0]->author));
+      $this->assertEquals('Dan',$response->data[0]->author->firstName);
+
+      $this->assertTrue(is_array($response->data[0]->comments));
+      $this->assertTrue(is_object($response->data[0]->comments[0]));
+      $this->assertEquals('First!',$response->data[0]->comments[0]->body);
+
+
   }
 
 }
