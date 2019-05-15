@@ -162,7 +162,7 @@ class Resource
     /**
      * @return Relationship[]
      */
-    public function relationships(): array
+    public function relationships()
     {
         return $this->relationships;
     }
