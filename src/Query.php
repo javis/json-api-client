@@ -1,9 +1,9 @@
 <?php
-namespace Javis\JsonApiClient;
+namespace Javis\JsonApi;
 
-class JsonApiQuery
+class Query
 {
-    // @var JsonApiClient
+    // @var Client
     protected $api_client;
     protected $endpoint;
     protected $method;

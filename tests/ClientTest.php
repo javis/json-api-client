@@ -1,15 +1,15 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Exception\RequestException;
-use Javis\JsonApiClient\JsonApiClient;
+use Javis\JsonApi\Client;
 
 
-class JsonApiClientTest extends TestCase
+class ClientTest extends TestCase
 {
 
   /**
@@ -23,9 +23,9 @@ class JsonApiClientTest extends TestCase
   {
       // Create a mock and queue two responses.
       $mock = new MockHandler();
-      $client = new Client(['handler' => $mock]);
+      $client = new HttpClient(['handler' => $mock]);
 
-      $var = new JsonApiClient("http://url.com",[],$client);
+      $var = new Client("http://url.com",[],$client);
       $this->assertTrue(is_object($var));
   }
 
@@ -33,18 +33,19 @@ class JsonApiClientTest extends TestCase
   {
       // create mock response
       $mock = new MockHandler();
-      $client = new Client(['handler' => $mock]);
+      $client = new HttpClient(['handler' => $mock]);
 
       $mock->append(new Response(200, [], file_get_contents(__DIR__ . '/fixtures/articles.json')));
 
       // create an API client with the mock response
-      $api_client = new JsonApiClient("http://example.com", [], $client);
+      $api_client = new Client("http://example.com", [], $client);
 
       // do the request from the API and parses the response
       $response = $api_client->endpoint('articles')->get();
 
       $this->assertEquals(200 , $response->status);
 
+      $this->assertTrue(is_object($response->data[0]));
   }
 
 }

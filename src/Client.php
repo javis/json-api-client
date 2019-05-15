@@ -1,7 +1,7 @@
 <?php
-namespace Javis\JsonApiClient;
+namespace Javis\JsonApi;
 
-use \GuzzleHttp\Client;
+
 use GuzzleHttp\Psr7;
 
 
@@ -10,7 +10,7 @@ use GuzzleHttp\Psr7;
  * required to access the API. This instance can be use to do multiple calls to
  * different endopoints of the API
  */
-class JsonApiClient
+class Client
 {
     protected $client;
     protected $base_uri;
@@ -19,19 +19,19 @@ class JsonApiClient
     /**
      * @param \GuzzleHttp\Client $http_client
      */
-    public function __construct($base_uri, array $options = [], Client $http_client = null)
+    public function __construct($base_uri, array $options = [], \GuzzleHttp\Client $http_client = null)
     {
         $this->base_uri = Psr7\uri_for($base_uri);
 
         $this->options = $options;
 
-        $this->client = (!empty($http_client))? $http_client: new Client($this->getOptions());
+        $this->client = (!empty($http_client))? $http_client: new \GuzzleHttp\Client($this->getOptions());
     }
 
     /**
      * Returns an instance of a Json Api Query to do a call to an API endpoint
      * @param  string $endpoint relative uri to the endpoint
-     * @return JsonApiQuery
+     * @return Query
      */
     public function endpoint($endpoint)
     {
@@ -41,7 +41,7 @@ class JsonApiClient
             throw new \Exception("Endpoint must be a relative path");
         }
 
-        return new JsonApiQuery($this, $endpoint);
+        return new Query($this, $endpoint);
     }
 
     /**
@@ -68,7 +68,7 @@ class JsonApiClient
     {
         $response = $this->client->request($method, $endpoint, $options);
 
-        return new JsonApiResponse($response);
+        return new Response($response);
     }
 
 

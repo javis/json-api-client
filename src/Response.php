@@ -1,10 +1,10 @@
 <?php
-namespace Javis\JsonApiClient;
+namespace Javis\JsonApi;
 
 use WoohooLabs\Yang\JsonApi\Schema\Document;
-use Javis\JsonApiClient\Hydrator\ClassHydrator;
+use Javis\JsonApi\Hydrator\ClassHydrator;
 
-class JsonApiResponse
+class Response
 {
     public $response;
     public $body;

@@ -9,7 +9,7 @@ Making requests to API by using PHP HTTP Clients like Guzzle or CURL requires to
 This package tries to simplify this process, by allowing to get data from API as simply as:
 
 ```php
-$client = new JsonApiClient('http://my.api.com');
+$client = new Client('http://my.api.com');
 $response = $client->endpoint('users')->get();
 return $response->data;
 ```
@@ -44,12 +44,12 @@ $client->endpoint('users')->withJsonData([])->patch();//do patch request
 * `$client->endpoint('users')->fields(['user'=> ['id','name']])->get()` - adds query param `fields[users]=id,name`. See http://jsonapi.org/format/#fetching-sparse-fieldsets
 * `$client->endpoint('users')->filter(['users'=>['id'=>['eq'=>1]]])->get()` - adds query param `filter[users][id][eq]=1`. {json:api} is agnostic about filtering, so you can choose your filtering strategy and pass what ever array you want. See http://jsonapi.org/format/#fetching-filtering.
 * `$client->endpoint('users')->withQuery(['field'=>1])->get()` - adds query param `field=1=1`. In theory adding filter, includes, fields and pagination fields should be sufficient.
-* `JsonApiClient::limit($limit, $offset)->get('users')` - add result constraints to query param `page[limit]=x&page[offet]=y`. See http://jsonapi.org/format/#fetching-pagination
+* `Client::limit($limit, $offset)->get('users')` - add result constraints to query param `page[limit]=x&page[offet]=y`. See http://jsonapi.org/format/#fetching-pagination
 * `$client->endpoint('users')->withFormData(['name'=>'John'])->post()` - define post form data. Form data can contain files i.e `$client->endpoint('photos')->withFormData(['image'=> $request->file('image')])->post()`.
 * `$client->endpoint('users')->withJsonData(['name'=>'John'])->post()` - define post JSON data.
 
 ### Handling response
-Requests will return `JsonApiResponse` object. It will contain public variables:
+Requests will return `Response` object. It will contain public variables:
 * `$resopnse->data` - contains response data.
 * `$resopnse->meta` - contains meta data of a response.
 * `$resopnse->errors` - contains errors data of a response.

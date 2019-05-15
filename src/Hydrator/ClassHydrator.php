@@ -1,5 +1,5 @@
 <?php
-namespace Javis\JsonApiClient\Hydrator;
+namespace Javis\JsonApi\Hydrator;
 
 use stdClass;
 use WoohooLabs\Yang\JsonApi\Schema\Document;
