@@ -106,7 +106,7 @@ class ClassHydrator
      */
     private function getObjectFromMap($type, $id, array $resourceMap)
     {
-        return !empty($resourceMap[$type . "-" . $id])?$resourceMap[$type . "-" . $id]:null;
+        return !empty($resourceMap[$type . "-" . $id]) ? $resourceMap[$type . "-" . $id] : null;
     }
 
     /**
