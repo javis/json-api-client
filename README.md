@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/javis/json-api-client.svg?branch=master)](https://travis-ci.org/javis/json-api-client)
 [![Latest Stable Version](https://poser.pugx.org/javis/json-api-client/v/stable.svg)](https://packagist.org/packages/javis/json-api-client)
 [![Total Downloads](https://poser.pugx.org/javis/json-api-client/downloads.svg)](https://packagist.org/packages/javis/json-api-client)
-[![Latest Unstable Version](https://poser.pugx.org/javis/json-api-client/v/unstable.svg)](https://packagist.org/packages/javis/json-api-client)
+[![Quality Score](https://img.shields.io/scrutinizer/g/javis/json-api-client.svg)](https://scrutinizer-ci.com/g/json-api-client)
 [![License](https://poser.pugx.org/javis/json-api-client/license.svg)](https://packagist.org/packages/javis/json-api-client)
 
 Client for easy access of data from [{json:api}](http://jsonapi.org/) API.
