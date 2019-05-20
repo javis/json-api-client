@@ -26,7 +26,7 @@ class Client
 
         $this->options = $options;
 
-        $this->client = (!empty($http_client))? $http_client: new \GuzzleHttp\Client($this->getOptions());
+        $this->client = (!empty($http_client)) ? $http_client : new \GuzzleHttp\Client($this->getOptions());
     }
 
     /**
@@ -38,7 +38,7 @@ class Client
     {
         $endpoint = /** @scrutinizer ignore-call */ Psr7\uri_for($endpoint);
 
-        if ($endpoint->isAbsolute($endpoint)){
+        if ($endpoint->isAbsolute($endpoint)) {
             throw new \Exception("Endpoint must be a relative path");
         }
 
@@ -55,7 +55,7 @@ class Client
             'base_uri' => $this->base_uri,
             'http_errors' => true,
             'headers' => ['Accept' => 'application/json']
-        ],$this->options);
+        ], $this->options);
     }
 
     /**
