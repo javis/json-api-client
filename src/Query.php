@@ -142,12 +142,12 @@ class Query
                 }
             }
         }
-        if (!emtpy($this->fields)) {
+        if (!empty($this->fields)) {
             foreach ($this->fields as $resource => $fieldList) {
                 $query['fields'][$resource] = implode(',', $fieldList);
             }
         }
-        if (!emtpy($this->includes)) {
+        if (!empty($this->includes)) {
             $query['include'] = implode(',', $this->includes);
         }
         return $query;
@@ -205,7 +205,7 @@ class Query
 
     /**
      * Do a GET request to API
-     * @return Javis\JsonApi\Response
+     * @return Response
      */
     public function get()
     {
@@ -214,7 +214,7 @@ class Query
 
     /**
      * Do a POST request to API
-     * @return Javis\JsonApi\Response
+     * @return Response
      */
     public function post()
     {
@@ -223,7 +223,7 @@ class Query
 
     /**
      * Do a PATCH request to API
-     * @return Javis\JsonApi\Response
+     * @return Response
      */
     public function patch()
     {
@@ -232,7 +232,7 @@ class Query
 
     /**
      * Do a DELETE request to API
-     * @return Javis\JsonApi\Response
+     * @return Response
      */
     public function delete()
     {

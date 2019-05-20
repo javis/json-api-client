@@ -4,7 +4,7 @@ namespace Javis\JsonApi\Schema;
 class Links
 {
     /**
-     * @var \Javis\JsonApi\Schema\Link[]
+     * @var array
      */
     protected $links;
 
@@ -27,7 +27,7 @@ class Links
     }
 
     /**
-     * @param \Javis\JsonApi\Schema\Link[] $links
+     * @param array $links
      */
     public function __construct(array $links)
     {
@@ -156,7 +156,7 @@ class Links
 
     /**
      * @param $name
-     * @return \Javis\JsonApi\Schema\Link[] $links
+     * @return array $links
      */
     public function link($name)
     {
@@ -172,7 +172,7 @@ class Links
     }
 
     /**
-     * @return \Javis\JsonApi\Schema\Link[]
+     * @return array
      */
     public function links()
     {

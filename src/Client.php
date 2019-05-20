@@ -63,7 +63,7 @@ class Client
      * @param  string $method   [description]
      * @param  string $endpoint [description]
      * @param  array $options  [description]
-     * @return Javis\JsonApi\Response [description]
+     * @return Response [description]
      */
     public function request($method, $endpoint, array $options)
     {
