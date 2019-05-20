@@ -156,7 +156,7 @@ class Links
 
     /**
      * @param $name
-     * @return array $links
+     * @return mixed $links
      */
     public function link($name)
     {
