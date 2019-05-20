@@ -52,7 +52,7 @@ class Error
         $id = empty($error["id"]) === false ? $error["id"] : "";
         $meta = isset($error["meta"]) && is_array($error["meta"]) ? $error["meta"] : [];
         $links = Links::createFromArray(isset($error["links"]) && is_array($error["links"]) ? $error["links"] : []);
-        $status = empty($error["status"]) === false ? $error["status"] : "";
+        $status = (int) empty($error["status"]) === false ? $error["status"] : "";
         $code = empty($error["code"]) === false ? $error["code"] : "";
         $title = empty($error["title"]) === false ? $error["title"] : "";
         $detail = empty($error["detail"]) === false ? $error["detail"] : "";

@@ -3,6 +3,7 @@ namespace Javis\JsonApi;
 
 
 use GuzzleHttp\Psr7;
+use Javis\JsonApi\Client;
 
 
 /**
@@ -21,7 +22,7 @@ class Client
      */
     public function __construct($base_uri, array $options = [], \GuzzleHttp\Client $http_client = null)
     {
-        $this->base_uri = Psr7\uri_for($base_uri);
+        $this->base_uri = /** @scrutinizer ignore-call */ Psr7\uri_for($base_uri);
 
         $this->options = $options;
 
@@ -35,7 +36,7 @@ class Client
      */
     public function endpoint($endpoint)
     {
-        $endpoint = Psr7\uri_for($endpoint);
+        $endpoint = /** @scrutinizer ignore-call */ Psr7\uri_for($endpoint);
 
         if ($endpoint->isAbsolute($endpoint)){
             throw new \Exception("Endpoint must be a relative path");
@@ -59,10 +60,10 @@ class Client
 
     /**
      * [request description]
-     * @param  [type] $method   [description]
-     * @param  [type] $endpoint [description]
-     * @param  [type] $options  [description]
-     * @return [type]           [description]
+     * @param  string $method   [description]
+     * @param  string $endpoint [description]
+     * @param  array $options  [description]
+     * @return Javis\JsonApi\Response [description]
      */
     public function request($method, $endpoint, array $options)
     {

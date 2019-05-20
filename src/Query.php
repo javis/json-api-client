@@ -114,7 +114,7 @@ class Query
     protected function buildQuery()
     {
         $query = [];
-        if ($this->query) {
+        if (!empty($this->query)) {
             $query = $this->query;
         }
         if ($this->limit || $this->offset) {
@@ -127,7 +127,7 @@ class Query
             }
         }
 
-        if ($this->filters) {
+        if (!empty($this->filters)) {
             foreach ($this->filters as $resource => $columns) {
                 if(is_array($columns)){
                     foreach ($columns as $column => $operands) {
@@ -142,12 +142,12 @@ class Query
                 }
             }
         }
-        if ($this->fields) {
+        if (!emtpy($this->fields)) {
             foreach ($this->fields as $resource => $fieldList) {
                 $query['fields'][$resource] = implode(',', $fieldList);
             }
         }
-        if ($this->includes) {
+        if (!emtpy($this->includes)) {
             $query['include'] = implode(',', $this->includes);
         }
         return $query;
@@ -164,6 +164,7 @@ class Query
 
     protected function request($type)
     {
+        $params = [];
         $params['headers'] = $this->getHeaders();
         $params['query'] = $this->buildQuery();
 
@@ -204,7 +205,7 @@ class Query
 
     /**
      * Do a GET request to API
-     * @return api_clientResponse|null
+     * @return Javis\JsonApi\Response
      */
     public function get()
     {
@@ -213,7 +214,7 @@ class Query
 
     /**
      * Do a POST request to API
-     * @return api_clientResponse|null
+     * @return Javis\JsonApi\Response
      */
     public function post()
     {
@@ -222,7 +223,7 @@ class Query
 
     /**
      * Do a PATCH request to API
-     * @return api_clientResponse|null
+     * @return Javis\JsonApi\Response
      */
     public function patch()
     {
@@ -231,16 +232,10 @@ class Query
 
     /**
      * Do a DELETE request to API
-     * @return api_clientResponse|null
+     * @return Javis\JsonApi\Response
      */
     public function delete()
     {
         return $this->request('DELETE');
     }
-
-
-
-
-
-
 }

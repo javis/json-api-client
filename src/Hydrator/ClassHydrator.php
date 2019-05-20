@@ -63,7 +63,7 @@ class ClassHydrator
     private function hydratePrimaryResource(Document $document)
     {
         $resourceMap = [];
-        return $this->hydrateResource($document->primaryResource(), $document, $resourceMap);
+        return $this->hydrateResource(/** @scrutinizer ignore-type */ $document->primaryResource(), $document, $resourceMap);
     }
 
     /**

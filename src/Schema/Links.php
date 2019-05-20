@@ -58,7 +58,7 @@ class Links
     }
 
     /**
-     * @return \Javis\JsonApi\Schema\Link|null
+     * @return \Javis\JsonApi\Schema\Link
      */
     public function self()
     {
@@ -74,7 +74,7 @@ class Links
     }
 
     /**
-     * @return \Javis\JsonApi\Schema\Link|null
+     * @return \Javis\JsonApi\Schema\Link
      */
     public function related()
     {
@@ -90,7 +90,7 @@ class Links
     }
 
     /**
-     * @return \Javis\JsonApi\Schema\Link|null
+     * @return \Javis\JsonApi\Schema\Link
      */
     public function first()
     {
@@ -106,7 +106,7 @@ class Links
     }
 
     /**
-     * @return \Javis\JsonApi\Schema\Link|null
+     * @return \Javis\JsonApi\Schema\Link
      */
     public function last()
     {
@@ -122,7 +122,7 @@ class Links
     }
 
     /**
-     * @return \Javis\JsonApi\Schema\Link|null
+     * @return \Javis\JsonApi\Schema\Link
      */
     public function prev()
     {
@@ -138,7 +138,7 @@ class Links
     }
 
     /**
-     * @return \Javis\JsonApi\Schema\Link|null
+     * @return \Javis\JsonApi\Schema\Link
      */
     public function next()
     {

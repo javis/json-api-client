@@ -29,6 +29,19 @@ class ClientTest extends TestCase
       $this->assertTrue(is_object($var));
   }
 
+  public function testEndpointValidation()
+  {
+      // Create a mock and queue two responses.
+      $mock = new MockHandler();
+      $client = new HttpClient(['handler' => $mock]);
+
+      $api_client = new Client("http://url.com",[],$client);
+
+      $this->setExpectedException(\Exception::class);
+
+      $response = $api_client->endpoint('http://articles.com');
+  }
+
   public function testResponseParsing()
   {
       // create mock response

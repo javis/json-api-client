@@ -26,12 +26,12 @@ class Response
 
         $rawResponseData = $this->response->getBody()->getContents();
 
-        $this->body = $rawResponseData ? \GuzzleHttp\json_decode($rawResponseData, true) : '';
+        $this->body = $rawResponseData ? \GuzzleHttp\json_decode($rawResponseData, true) : [];
 
         $this->errors = isset($this->body['errors']) ? $this->body['errors'] : [];
 
-        if (substr($this->status, 0, 1) != 2) {
-            throw new \Exception("Error Processing Response: " . $this->errors, $this->status);
+        if (substr($this->status, 0, 1) != 2 and !empty($this->errors)) {
+            throw new \Exception("Error Processing Response: " . $this->errors[0]->title, $this->status);
         }
 
         //Set data
