@@ -26,7 +26,7 @@ class Response
 
         $rawResponseData = $this->response->getBody()->getContents();
 
-        $this->body = $rawResponseData ? \GuzzleHttp\json_decode($rawResponseData, true) : [];
+        $this->body = $rawResponseData ? \json_decode($rawResponseData, true) : [];
 
         $this->errors = isset($this->body['errors']) ? $this->body['errors'] : [];
 
