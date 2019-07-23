@@ -129,15 +129,14 @@ class Query
 
         if (!empty($this->filters)) {
             foreach ($this->filters as $resource => $columns) {
-                if(is_array($columns)){
+                if (is_array($columns)) {
                     foreach ($columns as $column => $operands) {
                         foreach ($operands as $operand => $value) {
                             $query['filter'][$resource][$column][$operand] = is_array($value) ? implode(',',
                                 $value) : $value;
                         }
                     }
-                }
-                else{
+                } else{
                     $query['filter'][$resource] = $columns;
                 }
             }
