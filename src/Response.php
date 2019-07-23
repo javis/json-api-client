@@ -3,6 +3,7 @@ namespace Javis\JsonApi;
 
 use Javis\JsonApi\Schema\Document;
 use Javis\JsonApi\Hydrator\ClassHydrator;
+use Javis\JsonApi\Exceptions\ApiException;
 
 class Response
 {
@@ -31,7 +32,7 @@ class Response
         $this->errors = isset($this->body['errors']) ? $this->body['errors'] : [];
 
         if (substr($this->status, 0, 1) != 2 and !empty($this->errors)) {
-            throw new \Exception("Error Processing Response: " . $this->errors[0]->title, $this->status);
+            throw new ApiException($this->errors, $this->status);
         }
 
         //Set data
