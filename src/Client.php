@@ -3,8 +3,6 @@ namespace Javis\JsonApi;
 
 
 use GuzzleHttp\Psr7;
-use Javis\JsonApi\Client;
-
 
 /**
  * Stores a instance of HTTP Client object with all the configuration
