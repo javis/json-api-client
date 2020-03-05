@@ -136,7 +136,7 @@ class Query
                                 $value) : $value;
                         }
                     }
-                } else{
+                } else {
                     $query['filter'][$resource] = $columns;
                 }
             }
@@ -170,7 +170,7 @@ class Query
         if (!empty($this->jsonData)) {
             $params['json'] = $this->jsonData;
         }
-        else{
+        else {
             if ($this->multipart) {
                 $params['multipart'] = $this->convertFormDataIntoMultipart($this->formData);
             } else {
