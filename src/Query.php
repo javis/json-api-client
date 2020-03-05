@@ -167,14 +167,15 @@ class Query
         $params['headers'] = $this->getHeaders();
         $params['query'] = $this->buildQuery();
 
-        if (isset($this->jsonData)) {
+        if (!empty($this->jsonData)) {
             $params['json'] = $this->jsonData;
         }
-
-        if ($this->multipart) {
-            $params['multipart'] = $this->convertFormDataIntoMultipart($this->formData);
-        } else {
-            $params['form_params'] = $this->formData;
+        else{
+            if ($this->multipart) {
+                $params['multipart'] = $this->convertFormDataIntoMultipart($this->formData);
+            } else {
+                $params['form_params'] = $this->formData;
+            }
         }
 
         return $this->api_client->request($type, $this->endpoint, $params);
